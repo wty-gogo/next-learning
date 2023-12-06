@@ -10,6 +10,7 @@ import {
     User,
 } from './definitions'
 import {formatCurrency} from './utils'
+import {notFound} from 'next/navigation'
 
 export async function fetchRevenue() {
     // Add noStore() here prevent the response from being cached.
@@ -167,6 +168,7 @@ export async function fetchInvoiceById(id: string) {
         }))
 
         return invoice[0]
+
     } catch (error) {
         console.error('Database Error:', error)
         throw new Error('Failed to fetch invoice.')
